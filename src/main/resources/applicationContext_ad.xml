@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+		   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		   http://www.springframework.org/schema/tx  
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+
+		<property name="persistenceUnitName" value="JpaPersistence" />
+	</bean>
+
+	<context:component-scan base-package="com">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Repository" />
+	</context:component-scan>
+
+	<bean id="entityManager"
+		class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
+		<property name="entityManagerFactory">
+			<ref local="entityManagerFactory" />
+		</property>
+
+	</bean>
+
+	<bean id="jpaQuerysBuilder" class="com.master.ad.generator.JpaQuerysBuilder"
+		scope="prototype">
+	</bean>
+
+
+	<bean id="translateTo" class="com.master.ad.translate.TranslateTo"
+		scope="prototype">
+	</bean>
+	<bean id="translateCost" class="com.master.ad.translate.TranslateCost"
+		scope="prototype">
+	</bean>
+
+	<bean id="translateUsuario" class="com.master.ad.translate.TranslateUsuario"
+		scope="prototype">
+	</bean>
+
+	<bean id="translateToRoles" class="com.master.ad.translate.TranslateToRoles"
+		scope="prototype">
+	</bean>
+
+	<tx:annotation-driven mode="aspectj"
+		transaction-manager="transactionManager" />
+
+	<context:spring-configured />
+	<context:annotation-config />
+
+
+	<!-- bean id="costDao" class="com.master.ad.dao.CostDaoImpl" scope="prototype"> 
+		<property name="entityManagerFactory"> <ref local="entityManagerFactory"/> 
+		</property> <property name="jpaQuerysBuilder"> <ref local="jpaQuerysBuilder"/> 
+		</property> <property name="translateTo"> <ref local="translateCost"/> </property> 
+		</bean -->
+
+
+	<!-- bean id="provinciaDao" class="com.master.ad.dao.ProvinciaDaoImpl" scope="prototype"> 
+		<property name="entityManagerFactory"> <ref local="entityManagerFactory"/> 
+		</property> <property name="jpaQuerysBuilder"> <ref local="jpaQuerysBuilder"/> 
+		</property> <property name="translateTo"> <ref local="translateTo"/> </property> 
+		</bean -->
+
+	<!-- bean id="comarcaDao" class="com.master.ad.dao.ComarcaDaoImpl" scope="prototype"> 
+		<property name="entityManagerFactory"> <ref local="entityManagerFactory"/> 
+		</property> <property name="jpaQuerysBuilder"> <ref local="jpaQuerysBuilder"/> 
+		</property> <property name="translateTo"> <ref local="translateTo"/> </property> 
+		</bean -->
+
+
+
+	<!-- bean id="capDao" class="com.master.ad.dao.CapDaoImpl" scope="prototype"> 
+		<property name="entityManagerFactory"> <ref local="entityManagerFactory"/> 
+		</property> <property name="jpaQuerysBuilder"> <ref local="jpaQuerysBuilder"/> 
+		</property> <property name="translateTo"> <ref local="translateTo"/> </property -->
+
+	<!--property name="translateTo"> <ref local="translateCost"/> </property -->
+
+	<!-- /bean -->
+
+	<!-- bean id="usuarioDao" class="com.master.ad.dao.UsuarioDaoImpl" scope="prototype"> 
+		<property name="entityManagerFactory"> <ref local="entityManagerFactory"/> 
+		</property> <property name="jpaQuerysBuilder"> <ref local="jpaQuerysBuilder"/> 
+		</property> <property name="translateTo"> <ref local="translateUsuario"/> 
+		</property> </bean -->
+
+	<bean id="usuarioDao" class="com.master.ad.dao.UsuarioDaoImpl"
+		scope="prototype">
+		<property name="entityManagerFactory">
+			<ref local="entityManagerFactory" />
+		</property>
+		<property name="jpaQuerysBuilder">
+			<ref local="jpaQuerysBuilder" />
+		</property>
+		<property name="translateTo">
+			<ref local="translateUsuario" />
+		</property>
+	</bean>
+
+
+	<bean id="rolesDao" class="com.master.ad.dao.RolesDaoImpl" scope="prototype">
+		<property name="entityManagerFactory">
+			<ref local="entityManagerFactory" />
+		</property>
+		<property name="jpaQuerysBuilder">
+			<ref local="jpaQuerysBuilder" />
+		</property>
+
+
+		<property name="translateTo">
+			<ref local="translateToRoles" />
+		</property>
+
+	</bean>
+
+
+
+</beans>           
