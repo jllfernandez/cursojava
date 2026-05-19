@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
+	<name>SpringMVC</name>
+=======
 	<name>cursojava</name>
+>>>>>>> 0c1c323c8e219e68caff17788d2b39f476dd88d6
 	<comment></comment>
 	<projects>
 	</projects>
