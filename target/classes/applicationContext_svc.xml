@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+		   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		   http://www.springframework.org/schema/tx  
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+
+
+
+	<!-- ......................... SERVICES ............................................... -->
+
+
+	<bean id="instrospector"
+		class="com.master.services.common.instrospector.InstrospectorImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="validation" class="com.master.services.ValidationImpl"
+		scope="session">
+			 <property name="usuarioDao">
+            <ref bean="usuarioDao" />
+        </property>
+	
+	</bean>
+
+	<bean id="roles" class="com.master.services.RolesImpl"
+		scope="prototype">
+		 <property name="rolesDao">
+            <ref bean="rolesDao" />
+        </property>
+	
+	</bean>
+
+
+	<!-- ............................................... FIN SERVICES ............................................... -->
+
+
+
+
+</beans>
