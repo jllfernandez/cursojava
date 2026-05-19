@@ -9,10 +9,17 @@
 	</parent>
 
 	<groupId>com.cursojava.springboot</groupId>
+<<<<<<< HEAD
 	<artifactId>boot1</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>boot1</name>
+=======
+	<artifactId>cursojava</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>cursojava</name>
+>>>>>>> 0c1c323c8e219e68caff17788d2b39f476dd88d6
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -91,4 +98,9 @@
 
 		</plugins>
 	</build>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+ 
+>>>>>>> 0c1c323c8e219e68caff17788d2b39f476dd88d6

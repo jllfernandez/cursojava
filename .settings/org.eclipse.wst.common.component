@@ -6,6 +6,10 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
         <property name="context-root" value="SpringMVC"/>
+<<<<<<< HEAD
         <property name="java-output-path" value="/SpringMVC/target/classes"/>
+=======
+        <property name="java-output-path" value="/cursojava/target/classes"/>
+>>>>>>> 0c1c323c8e219e68caff17788d2b39f476dd88d6
     </wb-module>
 </project-modules>
