@@ -9,10 +9,10 @@
 	</parent>
 
 	<groupId>com.cursojava.springboot</groupId>
-	<artifactId>cursojava</artifactId>
+	<artifactId>boot1</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-	<name>cursojava</name>
+	<name>boot1</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -92,4 +92,3 @@
 		</plugins>
 	</build>
 </project>
- 
